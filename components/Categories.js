@@ -1,6 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
+import { FlatGrid } from "react-native-super-grid";
 import client, { urlFor } from "../sanity";
 const Categories = () => {
   const [categories, setCategores] = useState([]);
@@ -14,23 +15,20 @@ const Categories = () => {
       .then((data) => setCategores(data));
   }, []);
   return (
-    <ScrollView
-      contentContainerStyle={{
-        paddingHorizontal: 15,
-        paddingTop: 10,
-      }}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-    >
-      {/*Categories Card */}
-      {categories?.map((category) => (
+    <FlatGrid
+      className="bg-white"
+      maxItemsPerRow={4}
+      spacing={10}
+      itemDimension={50}
+      data={categories}
+      keyExtractor={(item) => item._id}
+      renderItem={({ item }) => (
         <CategoryCard
-          key={category._id}
-          imgUrl={urlFor(category.image).width(200).url()}
-          title={category.name}
+          imgUrl={urlFor(item.image).width(200).url()}
+          title={item.name}
         />
-      ))}
-    </ScrollView>
+      )}
+    />
   );
 };
 

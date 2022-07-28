@@ -32,6 +32,16 @@ export default {
       type: "number",
     },
     {
+      name: "openTime",
+      title: "Open Time of the Restaurant",
+      type: "string",
+    },
+    {
+      name: "closeTime",
+      title: "Closing Time of the Restaurant",
+      type: "string",
+    },
+    {
       name: "address",
       title: "Restaurant address",
       type: "string",
@@ -56,6 +66,12 @@ export default {
       title: "Dishes",
       type: "array",
       of: [{ type: "reference", to: [{ type: "dish" }] }],
+    },
+    {
+      name: "extraDishes",
+      title: "Extra Dishes",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "extraDish" }] }],
     },
   ],
 };

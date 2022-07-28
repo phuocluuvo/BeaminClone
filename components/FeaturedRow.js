@@ -1,6 +1,9 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
-import { ArrowRightIcon } from "react-native-heroicons/outline";
+import {
+  ArrowRightIcon,
+  ChevronRightIcon,
+} from "react-native-heroicons/outline";
 import RestaurantCard from "./RestaurantCard";
 import client from "../sanity";
 
@@ -26,12 +29,15 @@ const FeaturedRow = ({ id, title, description, featuredCategory }) => {
       .then((data) => setRestaurants(data?.restaurants));
   }, []);
   return (
-    <View className="">
+    <View className="border-gray-400 mt-2 bg-white">
       <View className="mt-4 flex-row items-center justify-between px-4 ">
-        <Text className="font-bold text-lg">{title}</Text>
-        <ArrowRightIcon color="#00CCBB" />
+        <View>
+          <Text className="font-bold text-lg">{title}</Text>
+          <Text className="text-xs text-gray-500">{description}</Text>
+        </View>
+        <ChevronRightIcon color="gray" size="15" fontWeight="bold" />
       </View>
-      <Text className="text-xs text-gray-500 px-4">{description}</Text>
+
       <ScrollView
         horizontal
         contentContainerStyle={{
