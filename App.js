@@ -9,6 +9,7 @@ import BasketScreen from "./screens/BasketScreen";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import MenuScreen from "./screens/MenuScreen";
+import SearchScreen from "./screens/SearchScreen";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -39,6 +40,11 @@ export default function App() {
             <Stack.Screen
               name="MenuScreen"
               component={MenuScreen}
+              options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+            <Stack.Screen
+              name="SearchScreen"
+              component={SearchScreen}
               options={{ presentation: "fullScreenModal", headerShown: false }}
             />
           </Stack.Navigator>

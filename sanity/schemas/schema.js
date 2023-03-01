@@ -9,6 +9,7 @@ import dish from "./dish";
 import feature from "./feature";
 
 import extraDish from "./extraDish";
+import searchHistory from "./searchHistory";
 export default createSchema({
   name: "default",
   types: schemaTypes.concat([
@@ -18,5 +19,6 @@ export default createSchema({
     feature,
     appfunction,
     extraDish,
+    searchHistory,
   ]),
 });

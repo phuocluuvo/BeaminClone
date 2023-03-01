@@ -42,8 +42,11 @@ const MenuScreen = () => {
         <ChevronRightIcon size={30} color="white" />
       </View>
       <ScrollView className="bg-gray-1-00 pt-10 border-b-slate-400">
-        {appfunctions?.map((appfunction) => (
-          <TouchableOpacity className="border-y-[1px] bg-white border-y-slate-200 py-3 px-5 flex-1  flex-row items-center justify-between">
+        {appfunctions?.map((appfunction, index) => (
+          <TouchableOpacity
+            key={index}
+            className="border-y-[1px] bg-white border-y-slate-200 py-3 px-5 flex-1  flex-row items-center justify-between"
+          >
             <Text className="text-lg ">{appfunction.functionName}</Text>
             <ChevronRightIcon size={30} color="lightgray" />
           </TouchableOpacity>
